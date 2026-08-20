@@ -150,6 +150,26 @@ curl -s -u "$ELASTIC_USER:$ELASTIC_PASSWORD" "${ELASTIC_URL}/logs-sws.recordings
   -d '{"size":0,"aggs":{"ult":{"max":{"field":"@timestamp"}}}}'
 ```
 
+### 9. Validar Alero × Elastic (sanity-check de volume)
+
+`validate_sws_recordings.sh` consulta a Alero e o Elastic na mesma janela
+de tempo (default: últimos 5 min) e imprime lado a lado a contagem de
+recordings e de documentos de cada lado — útil para checar rapidamente
+se a ingestão está acompanhando a origem:
+
+```bash
+set -a; source /etc/logstash/envio_sws_recordings.env; set +a
+cd /mnt/asper/scripts
+./validate_sws_recordings.sh          # ultimos 5 min (default)
+./validate_sws_recordings.sh 30       # ou outra janela, em minutos
+```
+
+Ver o cabeçalho do script e o item 3.12 do `CLAUDE.md`: como a Alero
+filtra pelo início da sessão (só fechada) e o Elastic indexa por horário
+do evento (step), uma diferença pequena numa janela curta é esperada —
+o reconcile diário cobre o que escapar dela. Diferença grande ou
+persistente é que é sinal de problema real.
+
 ## Handoff ao cliente
 
 - Índice `logs-sws.recordings-default` recriado com schema novo,
