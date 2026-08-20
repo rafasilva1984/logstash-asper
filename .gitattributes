@@ -1,0 +1,10 @@
+# Scripts e configs deste repo rodam num RHEL (logstash-prod-01) — nunca
+# deixar o Git trocar LF por CRLF neles (CRLF quebra shebang de .sh e
+# bagunça o parser de config do Logstash).
+*.sh  text eol=lf
+*.py  text eol=lf
+*.conf text eol=lf
+*.env text eol=lf
+*.env.example text eol=lf
+*.yml text eol=lf
+*.md  text eol=lf
