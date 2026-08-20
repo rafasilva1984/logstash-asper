@@ -28,6 +28,13 @@
 
 ### Sem proxy no ambiente do serviço.
 
+### Convenção de diretórios no servidor
+- **`.conf` e workers `.py`**: todos em `/etc/logstash/pipelines/` (não usar `conf.d/` —
+  é a pasta real usada pela instalação, apesar de exemplos genéricos por aí mencionarem
+  `conf.d`). Confirme sempre em `path.config` das entradas do `pipelines.yml`.
+- **Scripts auxiliares** (`bootstrap_*.sh` e demais scripts de suporte, exceto o
+  `ls_health.py` — esse fica em `/usr/local/bin/`, ver §9): `/mnt/asper/scripts/`.
+
 ---
 
 ## 2. Arquitetura geral dos pipelines

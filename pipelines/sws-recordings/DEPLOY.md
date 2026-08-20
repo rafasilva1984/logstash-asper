@@ -41,13 +41,13 @@ antigos (schema incompleto) se perdem. Confirme isso antes do passo 4.
 
 ```bash
 scp pipelines/sws-recordings/sws_recordings_worker.py       root@logstash-prod-01:/etc/logstash/pipelines/
-scp pipelines/sws-recordings/sws-recordings-realtime.conf   root@logstash-prod-01:/etc/logstash/conf.d/
-scp pipelines/sws-recordings/sws-recordings-reconcile.conf  root@logstash-prod-01:/etc/logstash/conf.d/
-scp pipelines/sws-recordings/bootstrap_sws_recordings.sh    root@logstash-prod-01:/opt/scripts/   # ou onde ficam os outros bootstrap_*.sh
+scp pipelines/sws-recordings/sws-recordings-realtime.conf   root@logstash-prod-01:/etc/logstash/pipelines/
+scp pipelines/sws-recordings/sws-recordings-reconcile.conf  root@logstash-prod-01:/etc/logstash/pipelines/
+scp pipelines/sws-recordings/bootstrap_sws_recordings.sh    root@logstash-prod-01:/mnt/asper/scripts/
 ```
 
-> Ajuste os caminhos de `conf.d`/pipelines se a instalação usar outra
-> convenção — confira `path.config` das entradas atuais em `pipelines.yml`.
+> `.conf` e workers `.py` sempre em `/etc/logstash/pipelines/`; scripts auxiliares
+> (`bootstrap_*.sh`) em `/mnt/asper/scripts/` (ver CLAUDE.md §1).
 
 Valide a sintaxe do worker antes de seguir:
 
@@ -87,7 +87,7 @@ chown logstash:logstash /var/lib/logstash/sws-recordings
 set -a; source /etc/logstash/envio_sws_recordings.env; set +a
 export ELASTIC_USERNAME="$ELASTIC_USER"   # o bootstrap espera ELASTIC_USERNAME
 
-cd /opt/scripts   # onde copiou bootstrap_sws_recordings.sh
+cd /mnt/asper/scripts
 ./bootstrap_sws_recordings.sh --drop-existing
 ```
 
@@ -118,12 +118,12 @@ Repita para `--mode reconcile` se quiser validar a janela larga também
 
 ```yaml
 - pipeline.id: sws-recordings-realtime
-  path.config: "/etc/logstash/conf.d/sws-recordings-realtime.conf"
+  path.config: "/etc/logstash/pipelines/sws-recordings-realtime.conf"
   queue.type: persisted
   pipeline.workers: 1   # worker tem checkpoint em disco — evita corrida entre workers
 
 - pipeline.id: sws-recordings-reconcile
-  path.config: "/etc/logstash/conf.d/sws-recordings-reconcile.conf"
+  path.config: "/etc/logstash/pipelines/sws-recordings-reconcile.conf"
   queue.type: persisted
   pipeline.workers: 1
 ```
