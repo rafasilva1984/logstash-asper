@@ -169,7 +169,7 @@ Estas são as lições mais caras da plataforma. Cada uma custou horas.
   retoma), mas ainda assim: **evite reiniciar durante backfill**.
 
 ### 3.12. API que só devolve sessão FECHADA filtrando pelo INÍCIO perde sessão longa em janela estreita
-- **Fonte**: pipeline `sws-recordings` v2 (Alero, `/sws/recordings`).
+- **Fonte**: pipeline `sws-recordings` (reescrita, Alero, `/sws/recordings`).
 - **Sintoma**: sessões longas (dezenas de minutos/horas) somem da ingestão
   quase-tempo-real, mesmo com checkpoint+overlap funcionando corretamente.
 - **Causa**: a API filtra `recordings` pelo horário de **início** da sessão
@@ -302,7 +302,7 @@ Todos com `queue.type: persisted`. Workers = 2, exceto onde notado.
 |-------------|-------|-------|-----------|-------------|
 | cyberark-loginapp | 05-cyberark-loginapp-poller.conf | (poller http) | **sim** | Checkpoint anti-buraco; workers=1 obrigatório |
 | sgp-recordings | sgp-recordings.conf | plain | não | Corrigido do crash json_lines |
-| sws-recordings-realtime | sws-recordings-realtime.conf | json_lines | **sim** | v2 (fonte Alero, `pipelines/sws-recordings/`); substituiu o `sws-recordings` antigo (script incompleto); step-level, checkpoint+overlap; ver 3.12 |
+| sws-recordings-realtime | sws-recordings-realtime.conf | json_lines | **sim** | reescrita (fonte Alero, `pipelines/sws-recordings/`); substituiu o `sws-recordings` antigo (script incompleto), **mesmo nome de data stream** (`logs-sws.recordings-default`); step-level, checkpoint+overlap; ver 3.12 |
 | sws-recordings-reconcile | sws-recordings-reconcile.conf | json_lines | **sim** | par do acima; `schedule` diário, janela larga sem checkpoint, cobre sessão longa que fecha tarde (3.12) |
 | sws-sessions-realtime | sws-sessions-realtime.conf | plain | não | Idem; `_id = _doc_id`; `interval=${POLL_INTERVAL_SECONDS:15}` |
 | cyberark-audit-realtime | cyberark-audit-realtime.conf | — | não | Funciona; 409 dedup benigno |
@@ -485,7 +485,7 @@ python3 -c "import ast; ast.parse(open('/etc/logstash/pipelines/<worker>.py').re
 | login Prodesp (Cloud.Core.Login, tabela Event) | `logs-cyberark.loginprodesp-default` |
 | loginapp (poller CyberArk Detran) | `logs-cyberark.loginapp-default` |
 | SGP recordings | `logs-sgp.recordings-default` |
-| SWS recordings v2 (Alero, step-level; `pipelines/sws-recordings/`) | `logs-sws.recordings-default` |
+| SWS recordings (reescrita, Alero, step-level; `pipelines/sws-recordings/`) | `logs-sws.recordings-default` |
 | SWS sessions | `logs-sws.sessions-default` |
 | cyberark audit | (data stream de audit) |
 

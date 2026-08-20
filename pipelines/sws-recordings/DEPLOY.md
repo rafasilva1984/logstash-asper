@@ -1,4 +1,4 @@
-# Deploy — substituição do pipeline `sws-recordings` (v2, fonte Alero)
+# Deploy — substituição do pipeline `sws-recordings` (reescrita, fonte Alero)
 
 Runbook para trocar o pipeline antigo (script incompleto) por este, sem
 repetir as armadilhas descritas no `CLAUDE.md` da raiz do repo (leia-o
@@ -91,10 +91,13 @@ cd /mnt/asper/scripts
 ./bootstrap_sws_recordings.sh --drop-existing
 ```
 
-Isso apaga `logs-sws.recordings-default` (schema antigo) e recria:
-ILM policy (hot `${SWS_ILM_HOT_MAX_AGE:-15d}` → frozen em
-`found-snapshots`, sem delete), index template com o mapping novo, e o
-data stream. **Ajuste `SWS_ILM_HOT_MAX_AGE`/`SWS_ILM_HOT_MAX_SHARD_SIZE`**
+O `DELETE /_data_stream/logs-sws.recordings-default` apaga o data stream
+**e todas as suas backing indices** (`.ds-logs-sws.recordings-default-*`)
+de uma vez — não é preciso apagar cada `.ds-*` manualmente. Em seguida o
+script recria, com **exatamente o mesmo nome** (`logs-sws.recordings-default`,
+sem sufixo de versão): ILM policy (hot `${SWS_ILM_HOT_MAX_AGE:-15d}` →
+frozen em `found-snapshots`, sem delete), index template com o mapping
+novo, e o data stream. **Ajuste `SWS_ILM_HOT_MAX_AGE`/`SWS_ILM_HOT_MAX_SHARD_SIZE`**
 no `.env` se o volume step-level exigir uma janela hot menor que os 15d
 default (volume por sessão pode ser bem maior que o índice de sessão
 "resumo" que existia antes).
