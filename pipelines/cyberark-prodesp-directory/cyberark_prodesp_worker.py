@@ -113,6 +113,23 @@ ROLES_PAGE_SIZE = _env("PRODESP_ROLES_PAGE_SIZE", 2000, int)  # paginacao dentro
 ROLES_MAX_WORKERS = _env("PRODESP_ROLES_MAX_WORKERS", 5, int)  # roles em paralelo
 ROLES_MAX_COUNT = _env("PRODESP_ROLES_MAX_COUNT", 0, int)  # 0 = todas; use >0 so pra smoke test
 
+# INCIDENTE 2026-08-25: numa carga real, uma role ficou paginando sem
+# nunca esvaziar (nem terminar, nem dar timeout) por 30+ minutos, prendendo
+# uma das ROLES_MAX_WORKERS threads pra sempre -- como fetch_all_roles() so
+# reporta "coleta finalizada" depois que TODAS as roles terminam, isso
+# travava o worker inteiro em silencio, sem nenhum erro no log (o timeout
+# por chamada nao ajuda aqui: cada pagina individual respondia dentro do
+# timeout, so nunca parava de gerar novas paginas). Teto duro por role:
+# nao e pra acontecer numa role normal (dezenas de membros, cabe numa
+# pagina so), so protege contra uma role anomala/corrompida travar tudo.
+ROLES_MAX_PAGES_PER_ROLE = _env("PRODESP_ROLES_MAX_PAGES_PER_ROLE", 20, int)
+# timeout por chamada ao GetRoleMembers -- baixado de 30s pra 15s apos o
+# mesmo incidente confirmar, em campo, que esse tenant tem roles
+# individuais instaveis (nao so a tabela RoleMember inteira, ver
+# incidente #1); 15s ainda e generoso pro caso normal (<1s medido em
+# probe original).
+ROLE_MEMBERS_TIMEOUT_SECONDS = _env("PRODESP_ROLE_MEMBERS_TIMEOUT_SECONDS", 15, int)
+
 MAX_RETRIES = _env("PRODESP_MAX_RETRIES", 3, int)
 RETRY_BACKOFF_SECONDS = _env("PRODESP_RETRY_BACKOFF_SECONDS", 5, int)
 
@@ -232,7 +249,7 @@ def request_role_members(role_id, page, page_size):
     /Redrock/query, essa chamada e rapida (~0.1-0.5s medido em probe); se
     passar muito disso e sinal de algo errado, nao de volume normal."""
     body = {"Name": role_id, "Args": {"PageNumber": page, "PageSize": page_size, "Caching": -1}}
-    return post_with_retry(ROLE_MEMBERS_URL, body, timeout=30, tag=f"role {role_id} pagina {page}")
+    return post_with_retry(ROLE_MEMBERS_URL, body, timeout=ROLE_MEMBERS_TIMEOUT_SECONDS, tag=f"role {role_id} pagina {page}")
 
 
 # --------------------------------------------------------------- helpers ---
@@ -306,6 +323,16 @@ def fetch_role_members(role_id, role_name, roles_by_key, lock):
     total_roles_aninhadas = 0
 
     while True:
+        if pagina > ROLES_MAX_PAGES_PER_ROLE:
+            # ver nota do incidente 2026-08-25 no topo do arquivo: role
+            # anomala paginando sem nunca esvaziar -- para aqui em vez de
+            # travar o worker inteiro. Os membros ja vistos ate agora desta
+            # role ficam validos; so para de tentar mais paginas.
+            log(f"[roles][{role_id}] ALERTA: atingiu PRODESP_ROLES_MAX_PAGES_PER_ROLE="
+                f"{ROLES_MAX_PAGES_PER_ROLE} ({total_users} membros ja coletados) sem "
+                f"esvaziar a paginacao -- parando essa role, provavel anomalia no backend")
+            break
+
         linhas = request_role_members(role_id, pagina, ROLES_PAGE_SIZE)
 
         if not linhas:

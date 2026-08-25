@@ -205,6 +205,46 @@ horários (20h e 23h) realmente disparam e que o `_id` dedup funciona
 como esperado entre eles (ver checklist do passo 8, comparar contagem
 apos as duas execucoes da mesma noite).
 
+## ⚠️ Incidente #3 (2026-08-25) — role anômala trava a coleta inteira em silêncio
+
+Durante o primeiro teste funcional de carga completa (`run_functional_test.sh`
+sem limites), a fase de roles (`fetch_all_roles`) ficou **30+ minutos sem
+nenhuma linha nova no log**, mas o processo continuava vivo:
+
+- `ps -o pid,etimes,stat,%cpu,cmd` — processo ativo, ~35min decorridos, CPU
+  baixa (típico de espera de rede, não de loop CPU-bound).
+- `ss -tnp | grep :443` — **5 conexões HTTPS estabelecidas** com o CyberArk,
+  uma por worker (`PRODESP_ROLES_MAX_WORKERS=5`) — confirma que estava
+  mesmo tentando trabalhar, não travado num deadlock de lock Python.
+- `grep -c "falhou apos"` no log — só 2 ocorrências, ambas nos primeiros
+  ~2 minutos da execução. Nada de novo depois disso.
+
+**Diagnóstico**: `fetch_all_roles()` só loga "coleta finalizada" depois que
+**todas** as futures do `ThreadPoolExecutor` terminam — uma única role
+"anômala" (paginação que nunca esvazia abaixo de `ROLES_PAGE_SIZE`, sem
+nunca dar timeout porque cada página individual respondia dentro dos 30s)
+prende uma das 5 threads pra sempre, e o restante do lote de roles (as
+outras ~200 já processadas rápido) fica todo esperando essa travar
+`as_completed()` nunca fechar o `with ThreadPoolExecutor`. Sem timeout de
+página que dispare, sem erro, sem log — silêncio total. Mesma família do
+incidente #1 (esse tenant tem roles/tabelas individuais instáveis no
+backend), só que dessa vez sem nenhum sintoma de erro pra apontar a causa.
+
+**Correção aplicada no worker**:
+- `PRODESP_ROLES_MAX_PAGES_PER_ROLE` (default `20`) — teto duro de páginas
+  por role em `fetch_role_members`; ao atingir, loga um `ALERTA` com o
+  `role_id` e quantos membros já tinha coletado, e para SÓ aquela role
+  (as outras continuam normalmente). Nunca deve ser atingido numa role
+  normal (dezenas de membros cabem numa página só de 2000).
+- `PRODESP_ROLE_MEMBERS_TIMEOUT_SECONDS` (default `15`, era `30`
+  hardcoded) — encurta o custo de retry de uma role realmente lenta.
+
+**Pendência**: identificar qual role específica causou isso (o worker
+antigo não logava o `role_id` até travar de vez — com o teto novo, a
+próxima carga completa vai apontar exatamente qual, no log, se acontecer
+de novo). Considerar reportar ao time do CyberArk/Centrify se for sempre
+a mesma role.
+
 ## Ponto em aberto (menor, não bloqueia o go-live)
 
 - **`User.Beneficiario_`**: tipo real não confirmado (veio como campo
