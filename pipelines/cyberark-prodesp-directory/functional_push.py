@@ -69,7 +69,13 @@ def flush(batch):
         auth=AUTH,
         timeout=120,
     )
-    r.raise_for_status()
+    if r.status_code != 200:
+        # erro no nivel do _bulk inteiro (index inexistente, auth, payload
+        # malformado, etc.) -- nao confundir com erro por-item (ex.: 409 de
+        # dedup, tratado abaixo). Corpo da resposta e o que da o motivo real
+        # (raise_for_status() sozinho so mostra o status code).
+        sys.stderr.write(f"[erro _bulk] HTTP {r.status_code}: {r.text[:1000]}\n")
+        r.raise_for_status()
     resp = r.json()
 
     created = duplicate = failed = 0

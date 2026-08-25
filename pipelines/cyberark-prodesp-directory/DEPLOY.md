@@ -342,7 +342,10 @@ set -a; source /etc/logstash/envio_cyberark_prodesp.env; set +a
 cd /mnt/asper/scripts
 
 # opcional: smoke rapido primeiro (poucos minutos), pra validar auth/join/escrita
-PRODESP_USERS_MAX_PAGES=1 PRODESP_ROLES_MAX_COUNT=5 ./run_functional_test.sh
+# IMPORTANTE: limitar PRODESP_USERS_PAGE_SIZE tambem -- so PRODESP_USERS_MAX_PAGES=1
+# ainda busca 1 pagina de ATE 50000 linhas reais (default de producao), o que nao
+# e mais um smoke test rapido (foi o que gerou o broken pipe/~48s no primeiro teste).
+PRODESP_USERS_PAGE_SIZE=200 PRODESP_USERS_MAX_PAGES=1 PRODESP_ROLES_MAX_COUNT=5 ./run_functional_test.sh
 
 # carga completa (~20-25min) -- essa e a que da certeza de verdade
 ./run_functional_test.sh

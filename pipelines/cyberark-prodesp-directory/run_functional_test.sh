@@ -15,7 +15,10 @@ set -euo pipefail
 # Uso:
 #   set -a; source /etc/logstash/envio_cyberark_prodesp.env; set +a
 #   ./run_functional_test.sh                                            # carga completa (~20-25min)
-#   PRODESP_USERS_MAX_PAGES=1 PRODESP_ROLES_MAX_COUNT=5 ./run_functional_test.sh   # smoke rapido (poucos minutos)
+#   PRODESP_USERS_PAGE_SIZE=200 PRODESP_USERS_MAX_PAGES=1 PRODESP_ROLES_MAX_COUNT=5 ./run_functional_test.sh   # smoke rapido (poucos minutos)
+#   (sem limitar PRODESP_USERS_PAGE_SIZE, o default de producao e 50000 --
+#   PRODESP_USERS_MAX_PAGES=1 sozinho NAO deixa o smoke pequeno, so limita
+#   a 1 pagina de ate 50000 linhas reais)
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
