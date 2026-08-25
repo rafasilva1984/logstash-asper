@@ -25,6 +25,13 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORKER="/etc/logstash/pipelines/cyberark_prodesp_worker.py"
 [ -f "$WORKER" ] || WORKER="$SCRIPT_DIR/cyberark_prodesp_worker.py"
 
+PUSH_SCRIPT="$SCRIPT_DIR/functional_push.py"
+if [ ! -f "$PUSH_SCRIPT" ]; then
+    echo "ERRO: $PUSH_SCRIPT nao encontrado." >&2
+    echo "functional_push.py precisa estar no MESMO diretorio que este script (${SCRIPT_DIR})." >&2
+    exit 1
+fi
+
 : "${ELASTIC_URL:?defina ELASTIC_URL (source no .env antes de rodar)}"
 : "${ELASTIC_USER:?defina ELASTIC_USER}"
 : "${ELASTIC_PASSWORD:?defina ELASTIC_PASSWORD}"
@@ -38,7 +45,7 @@ PUSH_LOG="/tmp/cyberark_prodesp_functional_${STAMP}.push.log"
 echo "== 1/3: rodando worker (${WORKER}) — log em ${WORKER_LOG} =="
 python3 "$WORKER" 2>"$WORKER_LOG" \
   | tee "$NDJSON" \
-  | python3 "$SCRIPT_DIR/functional_push.py" 2>"$PUSH_LOG"
+  | python3 "$PUSH_SCRIPT" 2>"$PUSH_LOG"
 
 echo
 echo "== 2/3: resumo do push =="

@@ -329,10 +329,16 @@ stream) mas manda pro Elasticsearch direto via `_bulk`, sem passar pelo
 Logstash. **Pré-requisito**: passo 4 (bootstrap — ILM/template/data
 stream) já executado, senão os docs falham na escrita.
 
+`functional_push.py` e `run_functional_test.sh` precisam ficar **no
+mesmo diretório** — o segundo procura o primeiro ao lado de si mesmo
+(`$SCRIPT_DIR/functional_push.py`). Os dois são scripts auxiliares de
+teste (não fazem parte do pipeline em produção), então os dois vão para
+`/mnt/asper/scripts/`, **não** para `/etc/logstash/pipelines/`:
+
 ```bash
-scp pipelines/cyberark-prodesp-directory/functional_push.py    root@logstash-prod-01:/etc/logstash/pipelines/
+scp pipelines/cyberark-prodesp-directory/functional_push.py     root@logstash-prod-01:/mnt/asper/scripts/
 scp pipelines/cyberark-prodesp-directory/run_functional_test.sh root@logstash-prod-01:/mnt/asper/scripts/
-ssh root@logstash-prod-01 'chmod +x /mnt/asper/scripts/run_functional_test.sh'
+ssh root@logstash-prod-01 'chmod +x /mnt/asper/scripts/run_functional_test.sh /mnt/asper/scripts/functional_push.py'
 ```
 
 No servidor:
