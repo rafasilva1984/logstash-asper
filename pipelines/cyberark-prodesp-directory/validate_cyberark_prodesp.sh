@@ -114,6 +114,7 @@ ORIGIN_TOTAL_ROLES=$(echo "$ROLE_TOTALS" | python3 -c 'import sys,json; print(js
 echo ">> consultando Elastic (${DATA_STREAM}, snapshot_date=${SNAPSHOT_DATE})..."
 ES_RESULT=$(es_search "{
   \"size\": 0,
+  \"track_total_hits\": true,
   \"query\": { \"term\": { \"snapshot_date\": \"${SNAPSHOT_DATE}\" } },
   \"aggs\": {
     \"usuarios_distintos\": { \"cardinality\": { \"field\": \"user_id\" } },

@@ -245,6 +245,22 @@ próxima carga completa vai apontar exatamente qual, no log, se acontecer
 de novo). Considerar reportar ao time do CyberArk/Centrify se for sempre
 a mesma role.
 
+**Ajuste em 2026-08-26 — timeout subido de 15s pra 25s**: rodando
+`validate_cyberark_prodesp.sh` (que soma `FullCount` de `GetRoleMembers`
+por role, mesmo endpoint do worker, mas com timeout **hardcoded em 30s**
+no próprio script — não lê `PRODESP_ROLE_MEMBERS_TIMEOUT_SECONDS`) contra
+o snapshot de 2026-08-25, **18 das 211 roles (~8,5%) deram timeout mesmo
+com 30s**. Confirma que a instabilidade é genuína do backend (mesma
+família dos Incidentes #1/#3), não foi introduzida pela redução pra 15s —
+mas nos 15s do worker essas mesmas roles ficavam de fora do snapshot toda
+noite (retry não ajuda quando o problema é latência real de ~15-25s, não
+falha transiente). `PRODESP_ROLE_MEMBERS_TIMEOUT_SECONDS` subido pra
+`25` (default no worker e no `.env.example`) — meio-termo: ainda bem
+abaixo do que a validação mostrou ser necessário pra sondagem completa
+(30s), mas cobre a faixa 15-25s que estava sendo cortada sem necessidade.
+Continuar monitorando o log (`[roles][<id>] falhou: ...`) pra ver se ainda
+sobra alguma role consistentemente fora mesmo com 25s.
+
 ## Ponto em aberto (menor, não bloqueia o go-live)
 
 - **`User.Beneficiario_`**: tipo real não confirmado (veio como campo

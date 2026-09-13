@@ -126,9 +126,13 @@ ROLES_MAX_PAGES_PER_ROLE = _env("PRODESP_ROLES_MAX_PAGES_PER_ROLE", 20, int)
 # timeout por chamada ao GetRoleMembers -- baixado de 30s pra 15s apos o
 # mesmo incidente confirmar, em campo, que esse tenant tem roles
 # individuais instaveis (nao so a tabela RoleMember inteira, ver
-# incidente #1); 15s ainda e generoso pro caso normal (<1s medido em
-# probe original).
-ROLE_MEMBERS_TIMEOUT_SECONDS = _env("PRODESP_ROLE_MEMBERS_TIMEOUT_SECONDS", 15, int)
+# incidente #1); subido pra 25s em 2026-08-26 apos o validate_cyberark_prodesp.sh
+# mostrar 18/211 roles dando timeout mesmo com 30s hardcoded (a versao do
+# script de validacao usa timeout fixo, nao le esta var) -- 15s estava
+# cortando roles que o backend so responde entre 15-25s, perdendo essas
+# roles todo snapshot noturno sem necessidade (retry nao ajuda quando o
+# problema e latencia real, nao falha transiente).
+ROLE_MEMBERS_TIMEOUT_SECONDS = _env("PRODESP_ROLE_MEMBERS_TIMEOUT_SECONDS", 25, int)
 
 MAX_RETRIES = _env("PRODESP_MAX_RETRIES", 3, int)
 RETRY_BACKOFF_SECONDS = _env("PRODESP_RETRY_BACKOFF_SECONDS", 5, int)
