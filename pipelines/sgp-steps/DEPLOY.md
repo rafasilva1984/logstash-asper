@@ -162,3 +162,21 @@ grep -i sgp_steps /var/log/logstash/logstash-plain.log | tail
   aumente o overlap; o custo é só revarrer e gerar 409.
 - **TLS**: o default é não validar certificado, igual ao script original
   (`SGP_STEPS_VERIFY_TLS`).
+
+## Validação da execução agendada (dia seguinte, depois das 07:00)
+
+```bash
+set -a; source /etc/logstash/envio_sgp_steps.env; set +a
+/mnt/asper/scripts/check_daily_run.sh   # copiar de pipelines/sgp-steps/check_daily_run.sh
+```
+
+O `check_daily_run.sh` dos dois pipelines tem o mesmo nome. Para manter os
+dois em `/mnt/asper/scripts/`, copie com sufixo:
+`check_daily_run_sgp.sh`.
+
+Considere OK se: o checkpoint estiver em ~07:00 de hoje (gravado em UTC,
+~10:00Z); o pipeline tiver `in`/`out` > 0; e no Elastic o `@timestamp`
+máximo for de hoje, com docs nas últimas 24h. 409 no log é normal (overlap
+de 1h). Se o checkpoint não mudou, o schedule não disparou: veja o log
+(item 4 do script), o `pipelines.yml` e se o `*_SCHEDULE` está entre aspas
+no `.env`.
