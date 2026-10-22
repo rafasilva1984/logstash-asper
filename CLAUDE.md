@@ -311,13 +311,15 @@ Todos com `queue.type: persisted`. Workers = 2, exceto onde notado.
 | sws-online-users | sws-online-users.conf | plain | **sim** | Novo (`pipelines/sws-online-users/`, fonte Alero — mesmo tenant do sws-recordings); snapshot de usuários online (ENTROU/ATIVO/SAIU) a cada 15min; varre lookback largo (13h) numa única execução (não precisa reconcile, ver 3.12); estado persistido em `SWS_ONLINE_STATE_FILE` (diff entrou/saiu, não é checkpoint de tempo) |
 | sgp-steps-daily | sgp-steps-daily.conf | json_lines | **sim** | Novo (`pipelines/sgp-steps/`, Alero tenant SGP, `freeSearch=sgp`); 1 doc por sessionStep das sessões abertas nas últimas 24h; `schedule` 07:00 local; checkpoint + overlap 60min (cobre disparo perdido e sessão aberta no disparo, 3.12); vars com prefixo `SGP_STEPS_` (não colidir com `ALERO_CLIENT_ID` do sws-recordings — todos os `.env` caem no mesmo processo); ILM com **delete** (hot 30d → frozen 300d → delete) |
 | detran-steps-daily | detran-steps-daily.conf | json_lines | **sim** | Novo (`pipelines/detran-steps/`), clone do sgp-steps-daily para o tenant Alero Detran, **sem** `freeSearch`; mesma credencial do sws-recordings (dados se sobrepõem, data stream separado de propósito); vars `DETRAN_STEPS_` (não confundir com `DETRAN_*` do cyberark-detran-directory); 07:00; ILM hot 30d → frozen 300d → delete |
+| prodesp-applaunch-realtime | prodesp-applaunch-realtime.conf | json_lines | **sim** | Novo (`pipelines/prodesp-applaunch/`), tenant CyberArk Prodesp, evento `Cloud.Saas.Application.AppLaunch` + dados do User (Selo_, LastLogin...); `interval` 300s, checkpoint + overlap 5min (janela ~10min); join User↔Event feito NO WORKER (prefetch por LastLogin + `IN`), ver §8; vars `PRODESP_APPLAUNCH_`; ILM hot 30d → frozen, sem delete |
 | (okta / azure_ad) | — | — | — | Linhas comentadas na unit — futuro |
 
 ### EnvironmentFiles (unit systemd `/usr/lib/systemd/system/logstash.service`)
 Sem hífen (obrigatórios) — todos em `/etc/logstash/`, chmod 600:
 `envio_cyberark_loginapp.env`, `envio_sws_recordings.env`, `envio_sgp_recordings.env`,
 `envio_cyberark_realtime.env`, `envio_sws_sessions.env`, `envio_usersselo.env`,
-`envio_loginprodesp.env`, `envio_sws_online_users.env`, `envio_sgp_steps.env`, `envio_detran_steps.env`.
+`envio_loginprodesp.env`, `envio_sws_online_users.env`, `envio_sgp_steps.env`, `envio_detran_steps.env`,
+`envio_prodesp_applaunch.env`.
 
 Cada `.env` traz tipicamente: `ELASTIC_URL`, `ELASTIC_USER`, `ELASTIC_PASSWORD`, e a var do
 data stream do pipeline (ex.: `LOGINPRODESP_DATA_STREAM`). ⚠️ Nome da var de usuário difere
@@ -369,6 +371,14 @@ Query endpoint (Redrock): `https://<tenant>.id.cyberark.cloud/Redrock/query`, PO
 - **Prodesp**: `ApplicationType` é **NULL** em todos os logins (não filtrar por ele!).
   O `INNER JOIN User↔Event` **estoura timeout** — usar só a tabela `Event`
   (`E.NormalizedUser AS LoginName`). `Uuid` **não é único entre dias** (ver 3.8).
+  Reconfirmado em 2026-10-21 (prodesp-applaunch): o JOIN estoura 180s **até em janela
+  de 10 min**. Precisando de colunas da `User`, fazer o join no worker: prefetch
+  `User.LastLogin > <inicio - 2h>` (~1s, cobre ~95% dos logins) + `User.LoginName IN (...)`
+  pro resto (~30s FIXOS por query, independente de 50 ou 500 logins).
+  Em `AppLaunch`, `Uuid` vem **NULL** — `_id` tem que ser composto sem ele.
+- **Limite do `/Redrock/query`**: `Script` com mais de **10.000 caracteres** é recusado
+  (`Query string exceeds maximum length of 10000 characters`) — `IN (...)` grande tem que
+  ser fatiado pelo tamanho da string.
 - Campos podem existir num tenant e não noutro; unicidade de identificadores não é
   garantida. **Sempre probe manual antes de assumir.**
 
@@ -493,6 +503,7 @@ python3 -c "import ast; ast.parse(open('/etc/logstash/pipelines/<worker>.py').re
 | SWS online users (snapshot ENTROU/ATIVO/SAIU; `pipelines/sws-online-users/`) | `logs-sws.online-users-default` |
 | SGP steps diário (Alero, sessões SGP das últimas 24h, step-level; `pipelines/sgp-steps/`) | `logs-sgp.steps-default` |
 | Detran steps diário (Alero tenant Detran, sessões das últimas 24h, step-level; `pipelines/detran-steps/`) | `logs-detran.steps-default` |
+| Prodesp AppLaunch (acessos a apps SOU SP/Plataforma SP/OIDC + dados do User; `pipelines/prodesp-applaunch/`) | `logs-cyberark.prodespapplaunch-default` |
 | cyberark audit | (data stream de audit) |
 
 > Se precisar reconstruir um pipeline: identifique a fonte pelo endpoint/tabela no topo do
