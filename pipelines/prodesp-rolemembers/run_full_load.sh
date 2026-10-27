@@ -7,6 +7,7 @@
 #   /mnt/asper/scripts/run_full_load.sh            # volta na hora, segue em background
 #   tail -f /var/log/logstash/prodesp-rolemembers-fullload.log
 #   /mnt/asper/scripts/run_full_load.sh --status   # rodando? ultimo resumo
+#   /mnt/asper/scripts/run_full_load.sh --stop     # para (o coletado fica no checkpoint)
 #   /mnt/asper/scripts/run_full_load.sh --foreground   # (interno / debug)
 #
 # O que faz, em rodadas (ate FULL_LOAD_ROUNDS, default 5):
@@ -54,6 +55,14 @@ case "${1:-}" in
       echo "parado"
     fi
     grep -E '\[rodada|\[fim\]|resumo\]|CONCLUIDO|ERRO' "$LOG" 2>/dev/null | tail -15
+    exit 0
+    ;;
+  --stop)
+    pkill -f "run_full_load.sh --foreground" 2>/dev/null || true
+    pkill -f "prodesp_rolemembers_worker.py" 2>/dev/null || true
+    rm -f "$PIDFILE"
+    echo "parado. O que ja foi coletado esta no checkpoint em $STATE_DIR; rodar de novo retoma."
+    echo "(isso tambem para uma execucao do pipeline do Logstash, se houver -- ela retoma no proximo disparo)"
     exit 0
     ;;
   --foreground) ;;

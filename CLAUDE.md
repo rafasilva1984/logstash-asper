@@ -312,7 +312,7 @@ Todos com `queue.type: persisted`. Workers = 2, exceto onde notado.
 | sgp-steps-daily | sgp-steps-daily.conf | json_lines | **sim** | Novo (`pipelines/sgp-steps/`, Alero tenant SGP, `freeSearch=sgp`); 1 doc por sessionStep das sessões abertas nas últimas 24h; `schedule` 07:00 local; checkpoint + overlap 60min (cobre disparo perdido e sessão aberta no disparo, 3.12); vars com prefixo `SGP_STEPS_` (não colidir com `ALERO_CLIENT_ID` do sws-recordings — todos os `.env` caem no mesmo processo); ILM com **delete** (hot 30d → frozen 300d → delete) |
 | detran-steps-daily | detran-steps-daily.conf | json_lines | **sim** | Novo (`pipelines/detran-steps/`), clone do sgp-steps-daily para o tenant Alero Detran, **sem** `freeSearch`; mesma credencial do sws-recordings (dados se sobrepõem, data stream separado de propósito); vars `DETRAN_STEPS_` (não confundir com `DETRAN_*` do cyberark-detran-directory); 07:00; ILM hot 30d → frozen 300d → delete |
 | prodesp-applaunch-realtime | prodesp-applaunch-realtime.conf | json_lines | **sim** | Novo (`pipelines/prodesp-applaunch/`), tenant CyberArk Prodesp, evento `Cloud.Saas.Application.AppLaunch` + dados do User (Selo_, LastLogin...); `interval` 300s, checkpoint + overlap 5min (janela ~10min); join User↔Event feito NO WORKER (prefetch por LastLogin + `IN`), ver §8; vars `PRODESP_APPLAUNCH_`; ILM hot 30d → frozen, sem delete |
-| prodesp-rolemembers-daily | prodesp-rolemembers-daily.conf | json_lines | **sim** | Novo (`pipelines/prodesp-rolemembers/`), tenant CyberArk Prodesp, membros por role via relatório `@/lib/reports/compliance/mfa.js` (regra diferente do `cyberark-prodesp-directory`/GetRoleMembers, roda lado a lado pra investigar perda) + dump da `User`; `schedule` 03:00 (timeout 1h/chamada, execução até 23h); 1ª carga full via `run_full_load.sh` (background no servidor); role só fecha com coletado == FullCount (retry + passadas); checkpoint por role/página COM as linhas em `/var/lib/logstash/prodesp-rolemembers/<dia>/` (reemite tudo do dia a cada execução → 409); `role_summary`/`run_summary` acusam o que não fechou; vars `PRODESP_ROLEMEMBERS_`; ILM hot 7d → frozen, sem delete |
+| prodesp-rolemembers-daily | prodesp-rolemembers-daily.conf | json_lines | **sim** | Novo (`pipelines/prodesp-rolemembers/`), tenant CyberArk Prodesp, membros por role via relatório `@/lib/reports/compliance/mfa.js` para roles leves e `RoleMember WHERE RoleID=<id>` paginada para as pesadas — o servidor corta o mfa.js em ~300s e o custo dele não depende do PageSize (regra diferente do `cyberark-prodesp-directory`/GetRoleMembers, roda lado a lado pra investigar perda) + dump da `User`; `schedule` 03:00 (execução até 23h); 1ª carga full via `run_full_load.sh` (background no servidor); role só fecha com coletado == FullCount (retry + passadas); checkpoint por role/página COM as linhas em `/var/lib/logstash/prodesp-rolemembers/<dia>/` (reemite tudo do dia a cada execução → 409); `role_summary`/`run_summary` acusam o que não fechou; vars `PRODESP_ROLEMEMBERS_`; ILM hot 7d → frozen, sem delete |
 | (okta / azure_ad) | — | — | — | Linhas comentadas na unit — futuro |
 
 ### EnvironmentFiles (unit systemd `/usr/lib/systemd/system/logstash.service`)
@@ -377,6 +377,14 @@ Query endpoint (Redrock): `https://<tenant>.id.cyberark.cloud/Redrock/query`, PO
   `User.LastLogin > <inicio - 2h>` (~1s, cobre ~95% dos logins) + `User.LoginName IN (...)`
   pro resto (~30s FIXOS por query, independente de 50 ou 500 logins).
   Em `AppLaunch`, `Uuid` vem **NULL** — `_id` tem que ser composto sem ele.
+- **Prodesp, membership de role** (medido em 2026-10-27, prodesp-rolemembers): o
+  servidor **corta qualquer chamada em ~300s** (HTTP 500 com página HTML "Idaptive") —
+  timeout maior no cliente não adianta. O relatório `@/lib/reports/compliance/mfa.js`
+  calcula a role inteira antes de paginar (PageSize 10 custa o mesmo que 5000) → role
+  grande nunca sai. `GetRoleMembers` ignora paginação e também estoura nas gigantes.
+  O que funciona: `SELECT RoleMember.MemberID, RoleMember.MemberType FROM RoleMember
+  WHERE RoleMember.RoleID = '<id>'` paginado (SEDUC - Tutoria, 190.688 membros, em
+  ~1,5 min). Só a tabela INTEIRA, sem `WHERE`, trava. `MemberID` = `User.ID`.
 - **Limite do `/Redrock/query`**: `Script` com mais de **10.000 caracteres** é recusado
   (`Query string exceeds maximum length of 10000 characters`) — `IN (...)` grande tem que
   ser fatiado pelo tamanho da string.

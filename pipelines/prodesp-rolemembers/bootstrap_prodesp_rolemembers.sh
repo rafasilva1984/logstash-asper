@@ -147,6 +147,14 @@ read -r -d '' MAPPING_PROPERTIES <<'JSON' || true
   "users_emitted":       { "type": "long" },
   "users_without_role":  { "type": "long" },
   "users_complete":      { "type": "boolean" },
+  "source_method":       { "type": "keyword" },
+  "rolemember_count":    { "type": "long" },
+  "mfa_full_count":      { "type": "long" },
+  "rm_full_count":       { "type": "long" },
+  "mfa_error":           { "type": "keyword", "ignore_above": 2048 },
+  "roles_mfa":           { "type": "integer" },
+  "roles_rm":            { "type": "integer" },
+  "roles_rm_deferred":   { "type": "integer" },
   "duration_s":          { "type": "float" }
 }
 JSON
