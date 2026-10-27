@@ -1,0 +1,1346 @@
+{
+ "00890777_f9d6_4bab_8809_56ac3e2b93c9": {
+  "RoleName": "SSP - Portal do Colaborador - Ambientes de Teste",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 2.4
+ },
+ "0093d43a_5f02_4acc_926d_c1d49b30ed72": {
+  "RoleName": "SGGD - E-social",
+  "failed": false,
+  "full_count": 243,
+  "max_seconds": 17.8
+ },
+ "05b3d923_e03f_46ad_9e18_d14d7da9460c": {
+  "RoleName": "Workspace - PGE - Gestor",
+  "failed": false,
+  "full_count": 10,
+  "max_seconds": 2.0
+ },
+ "061b04be_0d26_4041_b072_a7022417b83c": {
+  "RoleName": "STM - LICITAÇÕES",
+  "failed": false,
+  "full_count": 96,
+  "max_seconds": 11.1
+ },
+ "06ae79f6_7ca4_45de_a4d5_1382b5dbceef": {
+  "RoleName": "DETRAN - MFA",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 0.6
+ },
+ "074c6183_6fd0_4148_ad14_64c1f2889ea6": {
+  "RoleName": "Workspace - PGE - Assinante",
+  "failed": false,
+  "full_count": 389,
+  "max_seconds": 37.0
+ },
+ "081b306b_9ae1_4bb8_8b26_f6ffe6a44820": {
+  "RoleName": "CGE - Strix",
+  "failed": false,
+  "full_count": 59,
+  "max_seconds": 5.0
+ },
+ "09a6dc15_d685_4b09_abd7_44d4c42720d1": {
+  "RoleName": "Poupatempo - Atendente",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.5
+ },
+ "09f89235_563d_4839_9ff5_5f05d412f619": {
+  "RoleName": "Demandas Judiciais - Fluxo de cálculo - VALIDACAO",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 1.7
+ },
+ "0ad8e842_912d_465e_a0a5_f3dce539b8c1": {
+  "RoleName": "Workspace - Gestão de Acessos",
+  "failed": false,
+  "full_count": 337,
+  "max_seconds": 43.1
+ },
+ "0b0476c1_d6b2_453a_97d8_6cf84821d2f1": {
+  "RoleName": "ARTESP - Portal eCipes",
+  "failed": false,
+  "full_count": 25,
+  "max_seconds": 2.7
+ },
+ "0b8ba7c9_c6c6_46c8_8873_c4cf3ea425ab": {
+  "RoleName": "SGGD - Acervo CPI",
+  "failed": false,
+  "full_count": 50,
+  "max_seconds": 5.6
+ },
+ "0d930266_7c35_41f2_b833_da80a7dc8b63": {
+  "RoleName": "SGGD - DADOS ABERTOS",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.9
+ },
+ "0dc522e5_ee83_4e4c_9442_db12acd5df7d": {
+  "RoleName": "SEDPCD - Ciptea",
+  "failed": false,
+  "full_count": 430,
+  "max_seconds": 52.9
+ },
+ "0e4a1b6d_3a77_400a_898d_1f38f220cf09": {
+  "RoleName": "SEDS - Instituicoes",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 1.0
+ },
+ "0e8cbe0e_2d97_429c_84da_c163a2609d53": {
+  "RoleName": "SGP – Auditoria",
+  "failed": false,
+  "full_count": 8,
+  "max_seconds": 0.9
+ },
+ "1242da9b_df3b_4452_bb5f_7cb5f04fd1ad": {
+  "RoleName": "Balcao Unico",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.3
+ },
+ "12bcb5b8_f641_4e89_b6d4_f78c32ccb014": {
+  "RoleName": "Centro Paula Souza - Atrio",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.2
+ },
+ "138cf2c1_1a71_4f29_b237_337e1347514d": {
+  "RoleName": "SDE - Portal Executora",
+  "failed": false,
+  "full_count": 22,
+  "max_seconds": 3.7
+ },
+ "1552f1f8_3666_46ee_9605_e0b35c946fab": {
+  "RoleName": "A_PrioridadeSWS",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 2.7
+ },
+ "15b95f0d_baa8_4bb1_ab20_f47caaee235e": {
+  "RoleName": "CGE - Sistema de Beneficios",
+  "failed": false,
+  "full_count": 232,
+  "max_seconds": 24.3
+ },
+ "1611f37a_38c9_413f_ac2d_2fb936a0ab2f": {
+  "RoleName": "Demandas Judiciais - Fluxo de cálculo - DIVERSOS",
+  "failed": false,
+  "full_count": 2,
+  "max_seconds": 2.8
+ },
+ "16dcd214_0ab5_4858_807d_353caa1df191": {
+  "RoleName": "Demandas_Judiciais_Implantação_em_Folha",
+  "failed": false,
+  "full_count": 18,
+  "max_seconds": 5.0
+ },
+ "1872a7c9_beaa_4f78_9561_dd95fce0fc42": {
+  "RoleName": "SES - SISCOA",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 1.0
+ },
+ "18a7c8a7_dad3_460e_afdc_3c306c10c30d": {
+  "RoleName": "SGGD - Consulta CPF",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 61.2
+ },
+ "18b647a4_82d8_434e_9641_ea1c109858b6": {
+  "RoleName": "ARSESP - SAFI",
+  "failed": false,
+  "full_count": 149,
+  "max_seconds": 16.7
+ },
+ "18dd27c3_467b_484c_9d4a_1e60c711452c": {
+  "RoleName": "HCFMB ESCRITÓRIO",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.2
+ },
+ "1a8dad65_cde1_45e7_afc9_b3e448af21d7": {
+  "RoleName": "Workspace - ServiceNowIODC",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 65.2
+ },
+ "1d777a70_21ca_41c7_b6b2_bbb2ec7f3d74": {
+  "RoleName": "0Secure Browser Teste",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 1.4
+ },
+ "1e022efb_dd70_41c0_af62_5d7f767407e9": {
+  "RoleName": "SES - GSnet-Compras",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 61.0
+ },
+ "1e19882c_79d5_48c5_8ac0_c9fa3a1f81cb": {
+  "RoleName": "SEDS - ProSocial",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 0.9
+ },
+ "1e75a43c_ea00_4dec_a142_91998b9aab5c": {
+  "RoleName": "SEDS - Amigo do Idoso",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 0.6
+ },
+ "1e9c2d9b_4d4b_4e41_babf_50c2f405c94b": {
+  "RoleName": "CASA CIVIL - Monitoramento de Metas",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.3
+ },
+ "27587aaa_9e89_40ab_9406_22333c441491": {
+  "RoleName": "Demandas Judiciais - Fluxo de cálculo - ISENCOES",
+  "failed": false,
+  "full_count": 2,
+  "max_seconds": 1.6
+ },
+ "28a11489_ae16_45e5_b051_1f57c51f36e3": {
+  "RoleName": "IAMSPE - RH WEB",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.5
+ },
+ "2bc63610_ee4c_482e_ac86_69a21754448d": {
+  "RoleName": "CGE - SPCI",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.7
+ },
+ "2f1909e8_85cd_42ab_89be_7cff25390aca": {
+  "RoleName": "Gestão",
+  "failed": false,
+  "full_count": 96,
+  "max_seconds": 9.8
+ },
+ "30693bc5_1847_4080_b2b2_6d9ada7e8db9": {
+  "RoleName": "Fomentos Sceic",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 2.6
+ },
+ "35e58d00_33d1_4f42_9c6c_621673178748": {
+  "RoleName": "Demandas Judiciais - Fluxo de cálculo - CONFERENCIA",
+  "failed": false,
+  "full_count": 2,
+  "max_seconds": 2.7
+ },
+ "3631e0cb_d964_48fd_8f1d_c432379c0faf": {
+  "RoleName": "Workspace - MoveSP",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 65.5
+ },
+ "37d6d339_4b69_4dac_a187_ed4a0913998a": {
+  "RoleName": "CGE - SPPATRI",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 61.2
+ },
+ "381752c0_741d_4149_a0f0_55b5f4e15c56": {
+  "RoleName": "IMESC - Laudos IPVA",
+  "failed": false,
+  "full_count": 432,
+  "max_seconds": 50.3
+ },
+ "399ff92a_d1e6_4472_9d11_c2d5132ce691": {
+  "RoleName": "Demandas_Judiciais_Fluxo_de_Calculo",
+  "failed": false,
+  "full_count": 63,
+  "max_seconds": 6.4
+ },
+ "39f96f82_d46d_455f_91b1_dc0c2616e890": {
+  "RoleName": "Pessoas",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 0.5
+ },
+ "414be194_a132_47e6_8279_49bda0a5e358": {
+  "RoleName": "PRODESP - SAMP",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.7
+ },
+ "41d95ad5_dc44_413c_90bb_7eee4b676183": {
+  "RoleName": "Connector Management Admin",
+  "failed": false,
+  "full_count": 37,
+  "max_seconds": 2.5
+ },
+ "42318dd8_6898_4c74_9bc7_ecbe8b9268d6": {
+  "RoleName": "Demandas Judiciais - Fluxo de cálculo - ASSINATURA",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 1.3
+ },
+ "42b78d5c_b808_4c88_9b28_62b6d59a6661": {
+  "RoleName": "Workspace - GP - Gestor",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 1.9
+ },
+ "43ac3321_d505_4407_8ea6_c9f0940f11d5": {
+  "RoleName": "IAMSPE - GSI WEB",
+  "failed": false,
+  "full_count": 200,
+  "max_seconds": 23.2
+ },
+ "462582ef_90fe_4431_b21c_891673af0420": {
+  "RoleName": "SGGD - E-Sisla",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.8
+ },
+ "483f74d1_86a3_4250_9e59_50777929069c": {
+  "RoleName": "SGGD - SAUDE",
+  "failed": false,
+  "full_count": 218,
+  "max_seconds": 37.6
+ },
+ "4862908b_4053_4d09_a769_8332adad1244": {
+  "RoleName": "Workspace - COETIC",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.4
+ },
+ "4beefaf1_60fa_4cfb_a249_fc846b40daae": {
+  "RoleName": "IMESC - Laudos Tribunal de Justiça",
+  "failed": false,
+  "full_count": 249,
+  "max_seconds": 29.9
+ },
+ "4d233886_e18f_4749_86f4_4162f03e3e0e": {
+  "RoleName": "SGI - Usuario Externo",
+  "failed": false,
+  "full_count": 3,
+  "max_seconds": 1.1
+ },
+ "4f98a443_02dc_40be_8eb2_66c556e152d8": {
+  "RoleName": "DETRAN",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 1.5
+ },
+ "51661012_2025_4b53_b134_d32eacedd4b7": {
+  "RoleName": "HCFMUSP - Ouvidoria",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 0.8
+ },
+ "5273cddc_6ac8_43c2_883a_c4fb2516259a": {
+  "RoleName": "Demandas Judiciais - Fluxo de cálculo - ANALISE",
+  "failed": false,
+  "full_count": 5,
+  "max_seconds": 1.3
+ },
+ "558a45a0_4e51_4f9c_a0b1_d40349868eb3": {
+  "RoleName": "SSP - Analise Criminal",
+  "failed": false,
+  "full_count": 9,
+  "max_seconds": 4.0
+ },
+ "55b39233_6010_4acb_855e_39517002f5af": {
+  "RoleName": "Workspace - PGE - Aprovador",
+  "failed": false,
+  "full_count": 454,
+  "max_seconds": 46.2
+ },
+ "566b8b34_fc03_423b_b813_54a7d5527467": {
+  "RoleName": "SSP - SAED Ouvidoria",
+  "failed": false,
+  "full_count": 40,
+  "max_seconds": 5.2
+ },
+ "58a0037b_9167_428f_86a4_d684e83b9a5b": {
+  "RoleName": "Ecosystem Admins",
+  "failed": false,
+  "full_count": 37,
+  "max_seconds": 3.6
+ },
+ "59fdbaa1_eb3c_4fa0_a7b1_55ea2e020db7": {
+  "RoleName": "Workspace - SEI",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.6
+ },
+ "5c665045_0807_4069_b40c_9c45f93cda40": {
+  "RoleName": "Administration Role",
+  "failed": false,
+  "full_count": 37,
+  "max_seconds": 3.5
+ },
+ "5f9fe030_880d_492f_9413_a59b183022eb": {
+  "RoleName": "Corpo de Bombeiros - Via Facil",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.5
+ },
+ "614d89d9_0b44_4931_8aa4_104174b12622": {
+  "RoleName": "Demandas Judiciais - Fluxo de cálculo - OFICIO",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 3.9
+ },
+ "61d31bd6_19ed_4e49_8bff_518814542aed": {
+  "RoleName": "SES - Portal de Indicadores",
+  "failed": false,
+  "full_count": 31,
+  "max_seconds": 4.1
+ },
+ "6204f7c7_ec42_4bcc_a2de_edfcffe5e2ab": {
+  "RoleName": "Workspace - PGE Permissão em Lote",
+  "failed": false,
+  "full_count": 45,
+  "max_seconds": 3.5
+ },
+ "67ea1c5b_dbe5_490c_938c_fdcee8a6432f": {
+  "RoleName": "CGE - Lince",
+  "failed": false,
+  "full_count": 38,
+  "max_seconds": 5.0
+ },
+ "67f1c5c6_462a_47d5_b50d_1c397dbb0bf4": {
+  "RoleName": "Cyberark Users",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 1.5
+ },
+ "69546147_4238_47b0_af33_aa5bc24aec3e": {
+  "RoleName": "SEDUC - HUB",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.7
+ },
+ "6aa15293_3710_47b9_b233_2e959b99a199": {
+  "RoleName": "Detran - SISFIN SWS",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 0.7
+ },
+ "6aa8a437_1201_4fce_81c3_1d2a54e958df": {
+  "RoleName": "HCFMRP-USP - Sistema IRIS",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.6
+ },
+ "6bc8353c_a246_4a0d_b2eb_a6ee0bbb0a18": {
+  "RoleName": "TDR Read-only",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 2.2
+ },
+ "6c049709_c9b1_4711_b5a8_c9fa4b0cf8bb": {
+  "RoleName": "Workspace - SICAD 2",
+  "failed": false,
+  "full_count": 5,
+  "max_seconds": 1.7
+ },
+ "6e1ad6c9_69d6_461f_81ab_b0a566645211": {
+  "RoleName": "SAM - Estoque",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.2
+ },
+ "6e375ee7_4b0e_418c_a2fa_fdf40c93679d": {
+  "RoleName": "SEFAZ - Sistemas",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.2
+ },
+ "6e76b5d1_e767_4bb6_bdec_a474e22636c7": {
+  "RoleName": "Mainframe Emulador PPT",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 1.2
+ },
+ "714a300b_485d_4d43_8f30_c1d93efe40a1": {
+  "RoleName": "DETRAN - Treinamento",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 1.4
+ },
+ "720ebb93_b630_4d0a_b351_6e896d46e385": {
+  "RoleName": "ARTESP - Sisdemanda",
+  "failed": false,
+  "full_count": 8,
+  "max_seconds": 2.5
+ },
+ "72ef9866_1e96_4041_b383_21bbd70fbfb3": {
+  "RoleName": "IAMSPE - Portal RH",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.6
+ },
+ "742907e9_f432_4ba8_8b61_03f6f99bb657": {
+  "RoleName": "SPI - OSC",
+  "failed": false,
+  "full_count": 222,
+  "max_seconds": 33.1
+ },
+ "76e99d60_5084_41f1_9a2b_e98bc27742fc": {
+  "RoleName": "Análise Comportamental",
+  "failed": false,
+  "full_count": 2,
+  "max_seconds": 2.9
+ },
+ "77323473_d1c2_4616_bd65_aa41fd44496b": {
+  "RoleName": "SOC - Incidentes",
+  "failed": false,
+  "full_count": 6,
+  "max_seconds": 4.5
+ },
+ "777a43a8_5386_4960_a0b7_9058f0615b35": {
+  "RoleName": "Detran - e-CRV SWS",
+  "failed": false,
+  "full_count": 9,
+  "max_seconds": 3.6
+ },
+ "77cc706d_d855_4956_8c49_cc2fe24d73cb": {
+  "RoleName": "PAM Integration",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 0.8
+ },
+ "7b38cb26_a7ab_4d1f_b67e_25114ef63d6d": {
+  "RoleName": "Technical Support Access",
+  "failed": false,
+  "full_count": 11,
+  "max_seconds": 1.8
+ },
+ "7bc06b8e_785b_4b62_bfc0_da4677ef2dd0": {
+  "RoleName": "Demandas Judiciais - Fluxo de cálculo - CUMPRIMENTO DE OF",
+  "failed": false,
+  "full_count": 6,
+  "max_seconds": 3.0
+ },
+ "7c8cfc4f_40c8_4768_980c_7cd9fa296d90": {
+  "RoleName": "SPI - OS",
+  "failed": false,
+  "full_count": 9,
+  "max_seconds": 1.8
+ },
+ "7d5eaf76_07cb_440e_8846_2467829206ef": {
+  "RoleName": "Minha Área - Minhas Tarefas",
+  "failed": false,
+  "full_count": 10,
+  "max_seconds": 3.0
+ },
+ "7d6e61ad_70eb_4d46_8b1f_c979a458474f": {
+  "RoleName": "Minha Área",
+  "failed": false,
+  "full_count": 14,
+  "max_seconds": 1.6
+ },
+ "7e602cac_536e_48a8_8cb3_be655dc50687": {
+  "RoleName": "SPPREV - Sigeprev",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.8
+ },
+ "818e1a7b_76ea_4f34_8186_67060f05c934": {
+  "RoleName": "Workspace - Indicacoes",
+  "failed": false,
+  "full_count": 408,
+  "max_seconds": 63.8
+ },
+ "81cec997_7d1d_4904_b336_fa3a64758d62": {
+  "RoleName": "SES - VACIVIDA",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.5
+ },
+ "83926c31_8ad5_4b25_8cf3_4b8cf5f8f706": {
+  "RoleName": "Demandas_Judiciais_Apostilas",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.9
+ },
+ "860c7c8c_be8d_432e_a508_f95b1fb31638": {
+  "RoleName": "Demandas Judiciais - Fluxo de cálculo - COMPLEMENTACOES",
+  "failed": false,
+  "full_count": 2,
+  "max_seconds": 2.5
+ },
+ "86fa06b4_e025_4cd2_8f0f_4e9480d5af72": {
+  "RoleName": "Poupatempo - PoupaFila",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 61.4
+ },
+ "87b5f324_30c0_4f64_a158_9e89ac41fc39": {
+  "RoleName": "SES - ISAUDE",
+  "failed": false,
+  "full_count": 17,
+  "max_seconds": 1.4
+ },
+ "89e2ed19_01f5_4c68_9ca0_a1f7308737f4": {
+  "RoleName": "Marktplace SP",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.3
+ },
+ "8a0d0945_9b22_4938_b56b_3291bbbf847c": {
+  "RoleName": "SGGD - Censo",
+  "failed": false,
+  "full_count": 232,
+  "max_seconds": 33.5
+ },
+ "8a2053ae_2d81_4b4f_8d37_a64403e73d38": {
+  "RoleName": "TDR Administrator",
+  "failed": false,
+  "full_count": 37,
+  "max_seconds": 2.2
+ },
+ "8c1451e3_aab8_408f_83b6_2db607d91167": {
+  "RoleName": "SEDUC - Sala do Futuro",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.4
+ },
+ "8d9ac72a_2442_4ec7_b6d1_6cb8650f8e46": {
+  "RoleName": "PGE - Sistema de Relatorios e Dashboards",
+  "failed": false,
+  "full_count": 17,
+  "max_seconds": 2.0
+ },
+ "8e13d24f_872a_4ab5_8515_a380c5d24106": {
+  "RoleName": "Workspace - PGE - Avaliador",
+  "failed": false,
+  "full_count": 181,
+  "max_seconds": 20.8
+ },
+ "90483b99_3460_4eee_8ce2_2f0be0643f82": {
+  "RoleName": "AdaptativeSelo",
+  "failed": false,
+  "full_count": 30,
+  "max_seconds": 3.5
+ },
+ "934ac7a9_59c3_4475_b7bc_74e2d606d748": {
+  "RoleName": "SCIM_DETRAN",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 0.3
+ },
+ "94028744_898d_48ba_ada3_38ebfb40cea4": {
+  "RoleName": "Service Account",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 1.1
+ },
+ "94344191_f96b_4689_9d85_250ecd6e431f": {
+  "RoleName": "CGE - DECBENS",
+  "failed": false,
+  "full_count": 2,
+  "max_seconds": 1.0
+ },
+ "9762d97b_1664_490f_ae25_851345b9fdb2": {
+  "RoleName": "SAM - Patrimônio",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.2
+ },
+ "9797e9d7_3b63_4c08_abf4_03e6faf66d9d": {
+  "RoleName": "Mainframe Emulador",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.7
+ },
+ "97a416b5_6017_435e_bcdc_7c294dce283f": {
+  "RoleName": "Portal - SOU.SP",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.3
+ },
+ "97ac41c1_e847_4248_8813_ddda8b34131e": {
+  "RoleName": "SDHU - HORUS",
+  "failed": false,
+  "full_count": 49,
+  "max_seconds": 8.8
+ },
+ "97eb4256_6978_4cbd_bbc0_d1de4e82cdd2": {
+  "RoleName": "SCEIC - SMAC",
+  "failed": false,
+  "full_count": 50,
+  "max_seconds": 8.5
+ },
+ "98633b3e_617c_4502_8dc8_98a360ac985f": {
+  "RoleName": "Mainframe Emulator (Teste)",
+  "failed": false,
+  "full_count": 238,
+  "max_seconds": 17.1
+ },
+ "9970d0e6_176d_48e9_a248_c17d0c10f751": {
+  "RoleName": "Acesso API",
+  "failed": false,
+  "full_count": 15,
+  "max_seconds": 2.0
+ },
+ "9c35a1b0_cf86_4a7a_b667_83443aa3e921": {
+  "RoleName": "Workspace - Sou Superior",
+  "failed": false,
+  "full_count": 397,
+  "max_seconds": 35.7
+ },
+ "9d282a00_50b5_43fb_ae02_233ed2a34fca": {
+  "RoleName": "Detran - SISPL SWS",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 0.7
+ },
+ "9e05b9b0_8b34_4c11_8368_2899166ae347": {
+  "RoleName": "SEDUC - Apoio Presencial",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 61.8
+ },
+ "9e20bbc6_15b3_47af_8e66_f02822041500": {
+  "RoleName": "JUCESP - SIAL",
+  "failed": false,
+  "full_count": 42,
+  "max_seconds": 14.3
+ },
+ "Everybody": {
+  "RoleName": "Everybody",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.4
+ },
+ "HighRisk": {
+  "RoleName": "High Risk Users",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 1.2
+ },
+ "IGAAdmin": {
+  "RoleName": "IGA Admin",
+  "failed": false,
+  "full_count": 4,
+  "max_seconds": 1.3
+ },
+ "IGAAppAdmin": {
+  "RoleName": "IGA App Admin",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 1.9
+ },
+ "IGAComplianceAdmin": {
+  "RoleName": "IGA Compliance Admin",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 2.7
+ },
+ "IGAITSMService": {
+  "RoleName": "IGA ITSM Service",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 0.5
+ },
+ "IGAReadOnlyAdmin": {
+  "RoleName": "IGA Read Only Admin",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 0.5
+ },
+ "IGAZUSService": {
+  "RoleName": "IGA ZUS Service",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 2.0
+ },
+ "LowRisk": {
+  "RoleName": "Low Risk Users",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 1.4
+ },
+ "MediumRisk": {
+  "RoleName": "Medium Risk Users",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 0.5
+ },
+ "a022ed65_5e1a_4b8a_9108_ecbd5b2d6e8f": {
+  "RoleName": "CMIL Operacional",
+  "failed": false,
+  "full_count": 2,
+  "max_seconds": 0.9
+ },
+ "a0aca754_602e_4b37_bdbe_0956388ddda0": {
+  "RoleName": "Workspace - Acesso",
+  "failed": false,
+  "full_count": 338,
+  "max_seconds": 50.2
+ },
+ "a2a355bc_3c45_47d1_9ec5_34cc4cce48d6": {
+  "RoleName": "Demandas Judiciais - Fluxo de Cálculo - Protocolo",
+  "failed": false,
+  "full_count": 3,
+  "max_seconds": 1.3
+ },
+ "a45adc2b_acf5_449d_8f7a_da328d45dce4": {
+  "RoleName": "SES - SISTRS",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 0.9
+ },
+ "a4f175d5_277f_4f38_887a_d1f57c183b29": {
+  "RoleName": "Workspace - GC - Gestor",
+  "failed": false,
+  "full_count": 107,
+  "max_seconds": 4.3
+ },
+ "a618027e_aa45_4dd7_9fab_2011b5e2a345": {
+  "RoleName": "Workspace - SGI",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 63.8
+ },
+ "a6207e97_348d_4d12_ba3f_56e813c84f99": {
+  "RoleName": "Detran - SISDEV SWS",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 1.0
+ },
+ "a642cf49_9281_443a_a04b_8d79d34bd6a2": {
+  "RoleName": "Suporte Asper",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 2.7
+ },
+ "a6a35000_fed0_4b81_b1a3_ed8b84b9954c": {
+  "RoleName": "ARTESP - Portal Parceiros Saúde",
+  "failed": false,
+  "full_count": 9,
+  "max_seconds": 0.8
+ },
+ "a847cfed_5710_4839_85e6_13f5c3963f53": {
+  "RoleName": "SGP-SISAUT",
+  "failed": false,
+  "full_count": 587,
+  "max_seconds": 32.3
+ },
+ "a9e052d8_5bb4_4d5c_97f6_76505266dc1c": {
+  "RoleName": "CMIL Seguraca Institucional",
+  "failed": false,
+  "full_count": 2,
+  "max_seconds": 0.7
+ },
+ "ad3d45f8_673e_4a39_ba81_79ed347c349c": {
+  "RoleName": "SEDUC - Conviva",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 61.5
+ },
+ "ad6f59e5_aeff_4a3d_b2d8_913ed142774e": {
+  "RoleName": "Acesso de Leitura API",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 1.3
+ },
+ "adb04a0d_a444_4976_acfd_de49c65d7a9f": {
+  "RoleName": "IAMSPE - Portal Acolhimento",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.4
+ },
+ "b0e7b261_bae3_4edf_bb65_cd1b79fd6526": {
+  "RoleName": "E-Social - PowerBI",
+  "failed": false,
+  "full_count": 8,
+  "max_seconds": 1.7
+ },
+ "b24c4e53_2e9e_4798_987e_56b0333e5137": {
+  "RoleName": "SEDS - Renda Cidada",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 0.9
+ },
+ "b378b5f3_b263_4d04_9867_a0af6c23a6ac": {
+  "RoleName": "PRODESP - EPM",
+  "failed": false,
+  "full_count": 4,
+  "max_seconds": 1.1
+ },
+ "b7d4425a_fa52_46c2_8cc9_0e89b61b0df9": {
+  "RoleName": "PRODESP - PGF",
+  "failed": false,
+  "full_count": 93,
+  "max_seconds": 16.5
+ },
+ "b9082d3a_80d7_424f_9ea4_bc770d8678f5": {
+  "RoleName": "ARTESP - Portal Externo",
+  "failed": false,
+  "full_count": 149,
+  "max_seconds": 11.0
+ },
+ "b90f6053_7101_4ae7_815b_ec94bb76b21b": {
+  "RoleName": "PRODESP - Outsourcing (Intranet)",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.5
+ },
+ "b96dba21_a042_4494_88ce_52719228df33": {
+  "RoleName": "Workspace - Sou Gestor",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 63.9
+ },
+ "bad1bba7_1169_4a7e_88fd_7e4d324473a9": {
+  "RoleName": "PGE - Attus",
+  "failed": false,
+  "full_count": 2079,
+  "max_seconds": 79.5
+ },
+ "bb9d348a_5cdb_4cef_98c2_799c36861b5e": {
+  "RoleName": "Workspace - PGE - Grupo Visualizador",
+  "failed": false,
+  "full_count": 85,
+  "max_seconds": 5.9
+ },
+ "bc511ed8_b7b3_4be9_af47_22183f827cb0": {
+  "RoleName": "SSP - Moradia Segura",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 62.3
+ },
+ "bd17a97d_aa65_4dac_9b78_81d471e5724a": {
+  "RoleName": "Workspace - SGP",
+  "failed": false,
+  "full_count": 5779,
+  "max_seconds": 216.9
+ },
+ "bdceaaab_5989_4bff_a946_7cda6b011d59": {
+  "RoleName": "Auditor",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 1.9
+ },
+ "bea43a69_7ea5_4e93_8571_d6b4fdabac98": {
+  "RoleName": "PGE - Sistema de Securitização PPI e PEP (SEC)",
+  "failed": false,
+  "full_count": 28,
+  "max_seconds": 7.4
+ },
+ "c0b381d3_c5dc_4954_8fe8_4becc72e3b81": {
+  "RoleName": "Workspace - GP - Adm",
+  "failed": false,
+  "full_count": 5,
+  "max_seconds": 1.2
+ },
+ "c0b982ef_5d4e_445e_8c04_81f232dcdfa2": {
+  "RoleName": "Detran - e-CNH SWS",
+  "failed": false,
+  "full_count": 6,
+  "max_seconds": 2.9
+ },
+ "c4de3d8a_7b23_41e6_8536_6d409c464365": {
+  "RoleName": "Workspace - PGE - Publicador",
+  "failed": false,
+  "full_count": 450,
+  "max_seconds": 29.7
+ },
+ "c93dfefb_6baf_4043_8270_1f6e33f9040d": {
+  "RoleName": "SEMIL - SIGAM",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.5
+ },
+ "cb8612dc_3849_456c_88d9_25e1cafe067a": {
+  "RoleName": "PRODESP - Riple",
+  "failed": false,
+  "full_count": 286,
+  "max_seconds": 35.6
+ },
+ "ce50f477_f1fe_4b3e_b56c_88768041f944": {
+  "RoleName": "ARTESP - Portal Parceiros",
+  "failed": false,
+  "full_count": 153,
+  "max_seconds": 8.3
+ },
+ "d0cddb2f_7ca1_44b9_aa42_06ce065ba25b": {
+  "RoleName": "SDE - Trampolim",
+  "failed": false,
+  "full_count": 19,
+  "max_seconds": 3.0
+ },
+ "d0f05c51_54fc_4b05_b7ce_b69d27460643": {
+  "RoleName": "SAA - SICAR",
+  "failed": false,
+  "full_count": 5,
+  "max_seconds": 1.5
+ },
+ "d159885c_5dd1_4558_ba96_91cf64101438": {
+  "RoleName": "TDR settings reviewer",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 1.4
+ },
+ "d2234cbe_b543_40af_8097_bad7ce7c0f7a": {
+  "RoleName": "Workspace - SGP APP Gateway",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 3.7
+ },
+ "d30742a8_3b57_4b62_8fa5_32d70c7f2ee4": {
+  "RoleName": "PGE - Divida Ativa",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.2
+ },
+ "d316fd06_c8ed_4089_9276_8ec7f08697d4": {
+  "RoleName": "SDE - FacilitaSP",
+  "failed": false,
+  "full_count": 112,
+  "max_seconds": 9.6
+ },
+ "d38fd1b2_662b_4e5b_8c65_6e176c0f189c": {
+  "RoleName": "SEDUC - Tutoria",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 905.1
+ },
+ "d3b9e6d5_bc8e_4678_868a_eccb000ab082": {
+  "RoleName": "PGE - Portal PGE",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.4
+ },
+ "d3c9e4a0_3c27_4c9d_a315_c62a8a0bb5b9": {
+  "RoleName": "ARTESP - Sisf",
+  "failed": false,
+  "full_count": 69,
+  "max_seconds": 6.7
+ },
+ "d41d6b5c_91cc_43a5_8205_e5032a1150aa": {
+  "RoleName": "SEDS - Sigsuas",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 1.4
+ },
+ "d4f350c0_7d2d_4567_9afa_e5a3c7121102": {
+  "RoleName": "PRODESP - Reembolso",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.1
+ },
+ "d50ac6d1_3ecd_42b3_b548_690c6e06c3fd": {
+  "RoleName": "SCEIC - SISTEMARH",
+  "failed": false,
+  "full_count": 12,
+  "max_seconds": 1.9
+ },
+ "d711a8a3_a341_4e79_b32b_5b129dacadf2": {
+  "RoleName": "Workspace - GC - Adm",
+  "failed": false,
+  "full_count": 20,
+  "max_seconds": 4.4
+ },
+ "d738138a_4294_419e_97b2_35aeaa1b8443": {
+  "RoleName": "TDR Monitoring",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 2.1
+ },
+ "d7b96300_3612_428f_a2bf_5d6401685236": {
+  "RoleName": "Cloud Onboarding Admin",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 0.4
+ },
+ "dc4f2170_1636_4ce6_b3bf_a43493b26e02": {
+  "RoleName": "Poupatempo - Gerenciamento Centralizado",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.7
+ },
+ "dcbc5a3c_3a30_4bc4_a62e_255f3f7febf1": {
+  "RoleName": "DOE - Publicador",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 61.3
+ },
+ "dcd466ff_d884_461a_b945_2266befaac12": {
+  "RoleName": "JUCESP - VRE REDESIM",
+  "failed": false,
+  "full_count": 9,
+  "max_seconds": 5.1
+ },
+ "dd092199_7baf_4c07_8d87_26161b620546": {
+  "RoleName": "Workspace - SICAD",
+  "failed": false,
+  "full_count": 122,
+  "max_seconds": 10.3
+ },
+ "e0bbc7db_edcc_4c52_93ae_623daf29fed3": {
+  "RoleName": "Poupatempo - Gestores",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 1.8
+ },
+ "e172e89a_b7a6_4d1b_b1d3_cae61d63b2f4": {
+  "RoleName": "SSP - INFOCRIM",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 62.3
+ },
+ "e34e8aa8_92ec_4593_a0ad_75090f80e28e": {
+  "RoleName": "SEMIL - e-Ambiente",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.2
+ },
+ "e3963eef_092a_4cbf_9a00_506df88c9163": {
+  "RoleName": "PRODESP - Outsourcing",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.4
+ },
+ "e546d25d_c36f_4ee8_ab34_39ebc22efd76": {
+  "RoleName": "Workspace - PDTIC",
+  "failed": false,
+  "full_count": 256,
+  "max_seconds": 28.6
+ },
+ "e6037483_0067_42b7_bc1a_ccc0922f5330": {
+  "RoleName": "ARTESP - Portal eBlitz",
+  "failed": false,
+  "full_count": 101,
+  "max_seconds": 6.4
+ },
+ "e66d121a_b6aa_49b0_b815_e03c39ae1b01": {
+  "RoleName": "SEDS - Acao Jovem",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 0.8
+ },
+ "e6994f6f_9051_4e91_82c6_766c8360838f": {
+  "RoleName": "SDE - PORTAL",
+  "failed": false,
+  "full_count": 380,
+  "max_seconds": 44.7
+ },
+ "e8574899_e9f0_4bbe_9733_11c8ba91bb7d": {
+  "RoleName": "Poupatempo - AgendaSP",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.8
+ },
+ "e9f6c2d6_8718_43d5_a14e_473727029c47": {
+  "RoleName": "JUCESP - ONLINE BACKOFFICE",
+  "failed": false,
+  "full_count": 37,
+  "max_seconds": 4.7
+ },
+ "ec32bae3_3298_45b2_b1fb_c87c5c1b60a1": {
+  "RoleName": "PGE - Escola Superior PGE",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.5
+ },
+ "ee2f5ee8_10d5_46cf_adc2_f5a451e849ec": {
+  "RoleName": "Detran - e-Vistoria SWS",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 0.7
+ },
+ "ee35a6d7_a3ae_4ef6_a388_df6b75232fec": {
+  "RoleName": "ARTESP - Webmaster",
+  "failed": false,
+  "full_count": 5,
+  "max_seconds": 2.0
+ },
+ "ee820dfc_743c_4b6e_889c_5b08cfc3d8a4": {
+  "RoleName": "SEDS - Conseas",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 1.0
+ },
+ "ef105e49_1906_45fa_92d3_b4e82e733095": {
+  "RoleName": "Demandas Judiciais - Fluxo de cálculo - ADICIONAIS E SEXTA",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 1.3
+ },
+ "f054d837_87c4_4403_9e74_65a18a1515b9": {
+  "RoleName": "SES - Remedio",
+  "failed": false,
+  "full_count": 505,
+  "max_seconds": 30
+ },
+ "f0ab5f16_29c4_4f8b_8dab_257fe43b2102": {
+  "RoleName": "SPI - PPP",
+  "failed": false,
+  "full_count": 4,
+  "max_seconds": 2.9
+ },
+ "f0ac9ff7_7e4f_4458_9ac6_1db85c6430e1": {
+  "RoleName": "HCFMB - Sistema Ouvidoria",
+  "failed": false,
+  "full_count": 16,
+  "max_seconds": 1.8
+ },
+ "f0c3ff75_dd9e_40e7_966b_d03fca188680": {
+  "RoleName": "Advanced TDR Monitoring",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 2.8
+ },
+ "f14e54a6_dc7e_446a_adfa_3423e9d482a6": {
+  "RoleName": "Poupatempo - Relacionamento",
+  "failed": false,
+  "full_count": 57,
+  "max_seconds": 6.8
+ },
+ "f1653136_c8fd_4f3b_815e_b9f6168c5b82": {
+  "RoleName": "Acesso Painel DashBoard",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 1.6
+ },
+ "f1694787_3c3c_4a6b_bddc_1da8da23a02d": {
+  "RoleName": "Workspace - PGE - Assinatura em Lote",
+  "failed": false,
+  "full_count": 30,
+  "max_seconds": 8.6
+ },
+ "f4090f68_f96a_4d1e_88cd_06dd570d7bf1": {
+  "RoleName": "Workspace - PGE - Criador",
+  "failed": false,
+  "full_count": 474,
+  "max_seconds": 24.9
+ },
+ "f45afb67_1ae4_48f5_9249_053044961f98": {
+  "RoleName": "SEDUC - SED",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.8
+ },
+ "f4dcbf15_59d6_4d60_8a8d_a25e01eeadfc": {
+  "RoleName": "Detran - SIM SWS",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 0.4
+ },
+ "f5d240b2_2044_4452_bd10_4534a70bffd4": {
+  "RoleName": "Minha Área - Tarefas da minha unidade",
+  "failed": false,
+  "full_count": 10,
+  "max_seconds": 3.1
+ },
+ "f6f63e03_cafd_49ab_beab_e7020ef4c777": {
+  "RoleName": "Poupatempo - Sala de Situacao",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.9
+ },
+ "f797b070_4cc1_45a1_b9ce_2beb9417ffde": {
+  "RoleName": "Corpo de Bombeiros - Credenciamento",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.4
+ },
+ "f9e03bcb_1095_4930_a9bd_dac35b414b9d": {
+  "RoleName": "HCFMB - DIÁRIO DE OBRAS",
+  "failed": false,
+  "full_count": 15,
+  "max_seconds": 2.1
+ },
+ "fa33b4c5_7a10_4e7f_bc68_d8d1c834c9a5": {
+  "RoleName": "DOE - Backoffice",
+  "failed": false,
+  "full_count": 44,
+  "max_seconds": 5.5
+ },
+ "fb46c2d4_a888_443c_a718_286ff4bc23d9": {
+  "RoleName": "ARTESP - Portal Fiscalização",
+  "failed": false,
+  "full_count": 132,
+  "max_seconds": 6.3
+ },
+ "fbbb6b9c_0b47_44a3_9ee2_0e02df780350": {
+  "RoleName": "HCFMB - Painel Custos",
+  "failed": false,
+  "full_count": 12,
+  "max_seconds": 1.4
+ },
+ "fcb41609_b5e8_4577_b24e_a2f06c98c17e": {
+  "RoleName": "SGP - Power BI",
+  "failed": false,
+  "full_count": 233,
+  "max_seconds": 18.8
+ },
+ "fd6435d3_0eea_4df3_a1e3_abf647e7d323": {
+  "RoleName": "ARTESP - Passe Escolar",
+  "failed": false,
+  "full_count": 42,
+  "max_seconds": 3.8
+ },
+ "ff435a24_0dc4_4c51_b3e6_776a938f90b3": {
+  "RoleName": "CEM Admin",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 0.5
+ },
+ "ffbd21b3_30ba_4103_9e65_e190bb46460b": {
+  "RoleName": "SGGD - PDI",
+  "failed": true,
+  "full_count": null,
+  "max_seconds": 60.9
+ },
+ "flowsadmin": {
+  "RoleName": "Flows Admin",
+  "failed": false,
+  "full_count": 39,
+  "max_seconds": 4.9
+ },
+ "flowscontrib": {
+  "RoleName": "Flows Contrib",
+  "failed": false,
+  "full_count": 1,
+  "max_seconds": 0.7
+ },
+ "flowscontrol": {
+  "RoleName": "Flows Control",
+  "failed": false,
+  "full_count": 0,
+  "max_seconds": 0.5
+ },
+ "flowsexecutor": {
+  "RoleName": "Flows Executor",
+  "failed": false,
+  "full_count": 120,
+  "max_seconds": 13.1
+ },
+ "flowsread": {
+  "RoleName": "Flows Read",
+  "failed": false,
+  "full_count": 3,
+  "max_seconds": 2.0
+ },
+ "global_auditor": {
+  "RoleName": "global auditor",
+  "failed": false,
+  "full_count": 38,
+  "max_seconds": 4.6
+ },
+ "securewebsessionportalaccess": {
+  "RoleName": "SWS Portal Access User",
+  "failed": false,
+  "full_count": 18,
+  "max_seconds": 2.3
+ },
+ "sysadmin": {
+  "RoleName": "System Administrator",
+  "failed": false,
+  "full_count": 37,
+  "max_seconds": 4.2
+ }
+}

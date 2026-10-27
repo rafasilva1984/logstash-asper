@@ -312,6 +312,7 @@ Todos com `queue.type: persisted`. Workers = 2, exceto onde notado.
 | sgp-steps-daily | sgp-steps-daily.conf | json_lines | **sim** | Novo (`pipelines/sgp-steps/`, Alero tenant SGP, `freeSearch=sgp`); 1 doc por sessionStep das sessões abertas nas últimas 24h; `schedule` 07:00 local; checkpoint + overlap 60min (cobre disparo perdido e sessão aberta no disparo, 3.12); vars com prefixo `SGP_STEPS_` (não colidir com `ALERO_CLIENT_ID` do sws-recordings — todos os `.env` caem no mesmo processo); ILM com **delete** (hot 30d → frozen 300d → delete) |
 | detran-steps-daily | detran-steps-daily.conf | json_lines | **sim** | Novo (`pipelines/detran-steps/`), clone do sgp-steps-daily para o tenant Alero Detran, **sem** `freeSearch`; mesma credencial do sws-recordings (dados se sobrepõem, data stream separado de propósito); vars `DETRAN_STEPS_` (não confundir com `DETRAN_*` do cyberark-detran-directory); 07:00; ILM hot 30d → frozen 300d → delete |
 | prodesp-applaunch-realtime | prodesp-applaunch-realtime.conf | json_lines | **sim** | Novo (`pipelines/prodesp-applaunch/`), tenant CyberArk Prodesp, evento `Cloud.Saas.Application.AppLaunch` + dados do User (Selo_, LastLogin...); `interval` 300s, checkpoint + overlap 5min (janela ~10min); join User↔Event feito NO WORKER (prefetch por LastLogin + `IN`), ver §8; vars `PRODESP_APPLAUNCH_`; ILM hot 30d → frozen, sem delete |
+| prodesp-rolemembers-daily | prodesp-rolemembers-daily.conf | json_lines | **sim** | Novo (`pipelines/prodesp-rolemembers/`), tenant CyberArk Prodesp, membros por role via relatório `@/lib/reports/compliance/mfa.js` (regra diferente do `cyberark-prodesp-directory`/GetRoleMembers, roda lado a lado pra investigar perda) + dump da `User`; `schedule` 03:00 (timeout 1h/chamada, execução até 23h); 1ª carga full via `run_full_load.sh` (background no servidor); role só fecha com coletado == FullCount (retry + passadas); checkpoint por role/página COM as linhas em `/var/lib/logstash/prodesp-rolemembers/<dia>/` (reemite tudo do dia a cada execução → 409); `role_summary`/`run_summary` acusam o que não fechou; vars `PRODESP_ROLEMEMBERS_`; ILM hot 7d → frozen, sem delete |
 | (okta / azure_ad) | — | — | — | Linhas comentadas na unit — futuro |
 
 ### EnvironmentFiles (unit systemd `/usr/lib/systemd/system/logstash.service`)
@@ -319,7 +320,7 @@ Sem hífen (obrigatórios) — todos em `/etc/logstash/`, chmod 600:
 `envio_cyberark_loginapp.env`, `envio_sws_recordings.env`, `envio_sgp_recordings.env`,
 `envio_cyberark_realtime.env`, `envio_sws_sessions.env`, `envio_usersselo.env`,
 `envio_loginprodesp.env`, `envio_sws_online_users.env`, `envio_sgp_steps.env`, `envio_detran_steps.env`,
-`envio_prodesp_applaunch.env`.
+`envio_prodesp_applaunch.env`, `envio_prodesp_rolemembers.env`.
 
 Cada `.env` traz tipicamente: `ELASTIC_URL`, `ELASTIC_USER`, `ELASTIC_PASSWORD`, e a var do
 data stream do pipeline (ex.: `LOGINPRODESP_DATA_STREAM`). ⚠️ Nome da var de usuário difere
@@ -504,6 +505,7 @@ python3 -c "import ast; ast.parse(open('/etc/logstash/pipelines/<worker>.py').re
 | SGP steps diário (Alero, sessões SGP das últimas 24h, step-level; `pipelines/sgp-steps/`) | `logs-sgp.steps-default` |
 | Detran steps diário (Alero tenant Detran, sessões das últimas 24h, step-level; `pipelines/detran-steps/`) | `logs-detran.steps-default` |
 | Prodesp AppLaunch (acessos a apps SOU SP/Plataforma SP/OIDC + dados do User; `pipelines/prodesp-applaunch/`) | `logs-cyberark.prodespapplaunch-default` |
+| Prodesp membros por role (relatório mfa.js por role + dump User; `pipelines/prodesp-rolemembers/`) | `logs-cyberark.prodesprolemembers-default` |
 | cyberark audit | (data stream de audit) |
 
 > Se precisar reconstruir um pipeline: identifique a fonte pelo endpoint/tabela no topo do
